@@ -7,6 +7,18 @@
 .org 0x801130d8
   jal recalculatePPandArena
 
+.org 0x801062e0
+.area 24
+  j readPStat
+  nop
+.endarea
+
+.org 0x80106474
+.area 20
+  j writePStat
+  nop
+.endarea
+
 .close
 
 .open "work/DIGIMON/BTL_REL.BIN",0x80052ae0

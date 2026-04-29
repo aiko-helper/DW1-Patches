@@ -1,6 +1,20 @@
 #include "Helper.hpp"
 
 #include "Math.hpp"
+#include "extern/dw1.hpp"
+
+extern "C"
+{
+    uint8_t readPStat(int32_t address)
+    {
+        return PLAYER_STATS_PTR[address + 345];
+    }
+
+    void writePStat(int32_t address, uint8_t value)
+    {
+        PLAYER_STATS_PTR[address + 345] = value;
+    }
+}
 
 TileIterator::TileIterator(int8_t startX, int8_t startY, int8_t endX, int8_t endY)
     : endX(endX)

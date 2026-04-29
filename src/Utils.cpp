@@ -89,6 +89,24 @@ extern "C"
 
         return size;
     }
+
+    uint16_t swapShortBytes(uint32_t value)
+    {
+        return static_cast<uint16_t>((value >> 8) | (value << 8));
+    }
+
+    // Pads buffer with ASCII spaces from `currentLength` up to `targetLength * 2` bytes.
+    // No-op when currentLength already exceeds the limit (the original vanilla code corrupted memory here).
+    uint8_t* padWithSpaces(uint8_t* buf, int32_t targetLength, int32_t currentLength)
+    {
+        const int32_t end = targetLength * 2;
+        while (currentLength < end)
+        {
+            *buf++ = 0x20;
+            currentLength++;
+        }
+        return buf;
+    }
 }
 
 void* operator new(size_t size)

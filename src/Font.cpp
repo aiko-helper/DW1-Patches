@@ -183,4 +183,10 @@ extern "C"
 
         if (hasShadow) renderStringNew(-1, posX + 1, posY + 1, uvWidth, uvHeight, uvX, uvY, offset, 0);
     }
+
+    void setTextColor(int32_t color)
+    {
+        COLORCODE_LOWBITS  = static_cast<uint8_t>(color & 0xf);
+        COLORCODE_HIGHBITS = static_cast<uint8_t>(COLORCODE_LOWBITS << 4);
+    }
 }

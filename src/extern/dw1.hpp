@@ -1603,6 +1603,7 @@ extern "C"
     extern GlyphData GLYPH_DATA[79];
     extern uint8_t COLORCODE_HIGHBITS;
     extern uint8_t COLORCODE_LOWBITS;
+    extern uint8_t* PLAYER_STATS_PTR;
     extern GsOT* ACTIVE_ORDERING_TABLE;
     extern PartnerEntity PARTNER_ENTITY;
     extern NPCEntity NPC_ENTITIES[8];
@@ -1825,6 +1826,8 @@ extern "C"
     void loadNewGameScene();
     int32_t newGameStateMachine();
     void unloadNewGameScene();
+    uint16_t swapShortBytes(uint32_t value);
+    uint8_t* padWithSpaces(uint8_t* buf, int32_t targetLength, int32_t currentLength);
 }
 
 static_assert(sizeof(PositionData) == 0x88);

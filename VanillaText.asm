@@ -1,6 +1,18 @@
 .open "work/DIGIMON/SLUS_010.32",0x80090000
 .psx
 
+.org 0x800ff51c
+.area 64
+  j padWithSpaces
+  nop
+.endarea
+
+.org 0x8010cc0c
+.area 28
+  j setTextColor
+  nop
+.endarea
+
 .org 0x800f299c
   jal convertValueToDigits
 .org 0x800f997c
